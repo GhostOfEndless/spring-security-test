@@ -1,7 +1,22 @@
 spring:
-  profiles:
-    active:
-# Тут перечислены доступные настройки для авторизации. Чтобы активировать какой-то тип, достаточно его раскомментировать
-# Важно! Должен быть активен только один профиль!
-    - basic-auth
-#    - form-auth
+  docker:
+    compose:
+      stop:
+        command: down
+  sql:
+    init:
+      mode: always
+jwt:
+  access-token-key: '{"kty":"oct","k":"hi7S5RX5ZRZooHA0RKGctZ-KtR9FoESgCnH-3BNg5XI"}'
+  refresh-token-key: '{"kty":"oct","k":"956PBFst1FguLr5irJD-aQ"}'
+server:
+  http2:
+    enabled: true
+#  ssl:
+#    key-store: /home/akosarev/tmp/ssl/keystore/localhost.p12
+#    key-store-password: password
+#    key-alias: localhost
+  port: 8443
+logging:
+  level:
+    org.springframework.security: trace
