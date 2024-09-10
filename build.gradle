@@ -14,17 +14,18 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:3.3.3'
-    implementation "org.springframework.boot:spring-boot-starter-security:3.3.3"
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc:3.3.3'
-    implementation 'org.springframework.boot:spring-boot-docker-compose:3.3.3'
-    implementation 'com.nimbusds:nimbus-jose-jwt:9.40'
+    implementation 'org.springframework.boot:spring-boot-starter-security:3.3.3'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.3.3'
+    implementation 'org.flywaydb:flyway-core:10.17.3'
     implementation 'org.postgresql:postgresql:42.7.4'
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.12.6'
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.12.6'
 
-    developmentOnly 'org.springframework.boot:spring-boot-devtools:3.3.3'
+    runtimeOnly 'org.flywaydb:flyway-database-postgresql:10.17.3'
 
-    testImplementation ('org.springframework.boot:spring-boot-starter-test:3.3.3') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
+    testImplementation ('org.springframework.boot:spring-boot-starter-test:3.3.3')
+    testImplementation 'org.springframework.security:spring-security-test:6.3.3'
 }
 
 test {
