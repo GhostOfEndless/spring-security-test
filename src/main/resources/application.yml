@@ -1,7 +1,17 @@
+server:
+  port: 8080
+
 spring:
-  profiles:
-    active:
-# Тут перечислены доступные настройки для авторизации. Чтобы активировать какой-то тип, достаточно его раскомментировать
-# Важно! Должен быть активен только один профиль!
-    - basic-auth
-#    - form-auth
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/security
+    password: password
+    username: user
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
